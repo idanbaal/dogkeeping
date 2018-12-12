@@ -23,6 +23,11 @@ const DefaultAside = React.lazy(() => import('./DefaultAside'));
 const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
 const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
 
+const SearchDogs = React.lazy(() => import('../../views/Search/SearchDogs'));
+const SearchDoggySitter = React.lazy(() => import('../../views/Search/SearchDoggySitter'));
+const Page404 = React.lazy(() => import('../../views/Pages/Page404'));
+const Home = React.lazy(() => import('../../views/Home/Home'));
+
 class DefaultLayout extends Component {
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
@@ -36,8 +41,8 @@ class DefaultLayout extends Component {
     return (
       <div className="app">
         <AppHeader fixed>
-          <Suspense  fallback={this.loading()}>
-            <DefaultHeader onLogout={e=>this.signOut(e)}/>
+          <Suspense fallback={this.loading()}>
+            <DefaultHeader onLogout={e => this.signOut(e)} />
           </Suspense>
         </AppHeader>
         <div className="app-body">
@@ -45,17 +50,22 @@ class DefaultLayout extends Component {
             <AppSidebarHeader />
             <AppSidebarForm />
             <Suspense>
-            <AppSidebarNav navConfig={navigation} {...this.props} />
+              <AppSidebarNav navConfig={navigation} {...this.props} />
             </Suspense>
             <AppSidebarFooter />
             {/* <AppSidebarMinimizer /> */}
           </AppSidebar>
           <main className="main">
-            <AppBreadcrumb appRoutes={routes}/>
+            <AppBreadcrumb appRoutes={routes} />
             <Container fluid>
               <Suspense fallback={this.loading()}>
                 <Switch>
-                  {routes.map((route, idx) => {
+                  <Route exact path="/search/dogs" name="Search Dogs" component={SearchDogs} />
+                  <Route exact path="/search/doggysitter" name="Search Doggy Sitter" component={SearchDoggySitter} />
+                  <Route exact path="/" name="Home" component={Home} />
+                  <Route name="Page 404" component={Page404} />
+
+                  {/* {routes.map((route, idx) => {
                     return route.component ? (
                       <Route
                         key={idx}
@@ -66,8 +76,9 @@ class DefaultLayout extends Component {
                           <route.component {...props} />
                         )} />
                     ) : (null);
-                  })}
-                  <Redirect from="/" to="/dashboard" />
+                  })} */}
+                  {/* <Redirect from="/" to="/dashboard" /> */}
+
                 </Switch>
               </Suspense>
             </Container>
