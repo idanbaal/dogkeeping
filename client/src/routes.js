@@ -37,7 +37,11 @@ const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 const Users = React.lazy(() => import('./views/Users/Users'));
 const User = React.lazy(() => import('./views/Users/User'));
 
- 
+
+// const SearchDogs = React.lazy(() => import('./views/Search/SearchDogs'));
+// const SearchDoggySitter = React.lazy(() => import('./views/Search/SearchDoggySitter'));
+// const Home = React.lazy(() => import('./views/Home/Home'));
+
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -56,6 +60,9 @@ const routes = [
   // { path: '/base/tables', name: 'Tables', component: Tables },
   // { path: '/base/tabs', name: 'Tabs', component: Tabs },
   // { path: '/base/breadcrumbs', name: 'Breadcrumbs', component: Breadcrumbs },
+           //{ path: '/search/searchdogs', exact: true, name: 'SearchDogs', component: SearchDogs },
+           //{ path: '/search/searchdoggysitter',  exact: true, name: 'SearchDoggySitter', component: SearchDoggySitter },
+           //{ path: '/home', exact: true, name: 'Home', component: Home },
   // { path: '/base/carousels', name: 'Carousel', component: Carousels },
   // { path: '/base/collapses', name: 'Collapse', component: Collapses },
   // { path: '/base/dropdowns', name: 'Dropdowns', component: Dropdowns },

@@ -27,6 +27,7 @@ const SearchDogs = React.lazy(() => import('../../views/Search/SearchDogs'));
 const SearchDoggySitter = React.lazy(() => import('../../views/Search/SearchDoggySitter'));
 const Page404 = React.lazy(() => import('../../views/Pages/Page404'));
 const Home = React.lazy(() => import('../../views/Home/Home'));
+const About = React.lazy(() => import('../../views/About/About'));
 
 class DefaultLayout extends Component {
 
@@ -63,20 +64,21 @@ class DefaultLayout extends Component {
                   <Route exact path="/search/dogs" name="Search Dogs" component={SearchDogs} />
                   <Route exact path="/search/doggysitter" name="Search Doggy Sitter" component={SearchDoggySitter} />
                   <Route exact path="/" name="Home" component={Home} />
+                  <Route exact path="/about/about" name="Home" component={About} />
                   <Route name="Page 404" component={Page404} />
 
-                  {/* {routes.map((route, idx) => {
-                    return route.component ? (
-                      <Route
-                        key={idx}
-                        path={route.path}
-                        exact={route.exact}
-                        name={route.name}
-                        render={props => (
-                          <route.component {...props} />
-                        )} />
-                    ) : (null);
-                  })} */}
+                  {/*{routes.map((route, idx) => {*/}
+                    {/*return route.component ? (*/}
+                      {/*<Route*/}
+                        {/*key={idx}*/}
+                        {/*path={route.path}*/}
+                        {/*exact={route.exact}*/}
+                        {/*name={route.name}*/}
+                        {/*render={props => (*/}
+                          {/*<route.component {...props} />*/}
+                        {/*)} />*/}
+                    {/*) : (null);*/}
+                  })}
                   {/* <Redirect from="/" to="/dashboard" /> */}
 
                 </Switch>

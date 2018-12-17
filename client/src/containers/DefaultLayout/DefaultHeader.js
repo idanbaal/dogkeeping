@@ -33,7 +33,7 @@ class DefaultHeader extends Component {
             <NavLink href="/">Home</NavLink>
           </NavItem>
           <NavItem className="px-3">
-            <Link to="/users">About</Link>
+            <Link to="/about/about">About</Link>
           </NavItem>
         </Nav>
         <Nav className="ml-auto" navbar>
