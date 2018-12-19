@@ -28,22 +28,35 @@ const SearchDoggySitter = React.lazy(() => import('../../views/Search/SearchDogg
 const Page404 = React.lazy(() => import('../../views/Pages/Page404'));
 const Home = React.lazy(() => import('../../views/Home/Home'));
 const About = React.lazy(() => import('../../views/About/About'));
+const Profile = React.lazy(() => import('../../views/Profile/MyProfile'));
+const Settings = React.lazy(() => import('../../views/Profile/Settings'));
 
 class DefaultLayout extends Component {
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   signOut(e) {
-    e.preventDefault()
-    this.props.history.push('/login')
+    e.preventDefault();
+    this.props.history.push('/login');
   }
+
+  profile(e) {
+    e.preventDefault();
+    this.props.history.push('/profile/myprofile');
+  }
+
+  settings(e){
+    e.preventDefault();
+    this.props.history.push('/profile/settings');
+  }
+
 
   render() {
     return (
       <div className="app">
         <AppHeader fixed>
           <Suspense fallback={this.loading()}>
-            <DefaultHeader onLogout={e => this.signOut(e)} />
+            <DefaultHeader onLogout={e => this.signOut(e)} onProfile={ e => this.profile(e)} onSettings={e=> this.settings(e)} />
           </Suspense>
         </AppHeader>
         <div className="app-body">
@@ -64,7 +77,9 @@ class DefaultLayout extends Component {
                   <Route exact path="/search/dogs" name="Search Dogs" component={SearchDogs} />
                   <Route exact path="/search/doggysitter" name="Search Doggy Sitter" component={SearchDoggySitter} />
                   <Route exact path="/" name="Home" component={Home} />
-                  <Route exact path="/about/about" name="Home" component={About} />
+                  <Route exact path="/about/about" name="About" component={About} />
+                  <Route exact path="/profile/myprofile" name="My Profile" component={Profile} />
+                  <Route exact path="/profile/settings" name="Settings" component={Settings} />
                   <Route name="Page 404" component={Page404} />
 
                   {/*{routes.map((route, idx) => {*/}

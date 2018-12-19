@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem, NavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom'
+
 
 import { AppAsideToggler, AppHeaderDropdown, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
 import logo from '../../assets/img/brand/logo.png'
@@ -14,6 +16,7 @@ const propTypes = {
 const defaultProps = {};
 
 class DefaultHeader extends Component {
+
   render() {
 
     // eslint-disable-next-line
@@ -42,8 +45,8 @@ class DefaultHeader extends Component {
               <img src={'../../assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
             </DropdownToggle>
             <DropdownMenu right style={{ right: 'auto' }}>
-              <DropdownItem><i className="fa fa-user"></i> Profile</DropdownItem>
-              <DropdownItem><i className="fa fa-wrench"></i> Settings</DropdownItem>
+              <DropdownItem onClick={e => this.props.onProfile(e)}> <i className="fa fa-user"></i> Profile</DropdownItem>
+              <DropdownItem onClick={e => this.props.onSettings(e)}><i className="fa fa-wrench"></i> Settings</DropdownItem>
               <DropdownItem onClick={e => this.props.onLogout(e)}><i className="fa fa-lock"></i> Logout</DropdownItem>
             </DropdownMenu>
           </AppHeaderDropdown>

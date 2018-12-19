@@ -32,7 +32,7 @@ export default class SearchDoggySitter extends React.Component {
                   </Col>
                 </FormGroup>
                 <col width="20px" />
-                <Col col="9"  sm="4" md="2"  xl className="mb-3 mb-xl-0">
+                <Col sm="2" md="1" >
                   <Button block color="primary">Search</Button>
                 </Col>
               </Row>
