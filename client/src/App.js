@@ -3,6 +3,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 // import { renderRoutes } from 'react-router-config';
 import Loadable from 'react-loadable';
 import './App.scss';
+import http from './providers/http-service';
 
 const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
 
@@ -32,15 +33,20 @@ const Page500 = Loadable({
 
 class App extends Component {
 
+  componentDidMount() {
+    http.get('/api')
+    .then(res => console.log(res));
+  }
+
   render() {
     return (
       <HashRouter>
-          <Switch>
-            <Route exact path="/login" name="Login Page" component={Login} />
-            <Route exact path="/register" name="Register Page" component={Register} />
-            <Route exact path="/500" name="Page 500" component={Page500} />
-            <Route path="/" name="Home" component={DefaultLayout} />
-          </Switch>
+        <Switch>
+          <Route exact path="/login" name="Login Page" component={Login} />
+          <Route exact path="/register" name="Register Page" component={Register} />
+          <Route exact path="/500" name="Page 500" component={Page500} />
+          <Route path="/" name="Home" component={DefaultLayout} />
+        </Switch>
       </HashRouter>
     );
   }
